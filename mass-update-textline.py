@@ -18,9 +18,8 @@ password = config.password
 # Functions and Givens
 emails = [
     "zcoburn1998@gmail.com",
-    "monetbernard1@gmail.com",
+    "annabryjavip@gmail.com",
     "Cristitf123@gmail.com",
-    "nathangwinn@gmail.com",
 ]
 
 
@@ -41,16 +40,18 @@ try:
         search = driver.find_element_by_name("search")
         search.send_keys(email)
         submitButton()
-        WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.LINK_TEXT, "View"))
-        )
-        res = driver.find_element_by_link_text("View")
-        if res:
-            res.click()
+
+        try:
+            WebDriverWait(driver, 5).until(
+                EC.presence_of_element_located((By.LINK_TEXT, "View"))
+            )
+            res = driver.find_element_by_link_text("View").click()
             tag = driver.find_element_by_css_selector("input.ui-widget-content")
             tag.send_keys("Closed", Keys.ENTER)
             driver.find_element_by_class_name("tagit-close").click()
             submitButton()
+        except NoSuchElementException:
+            print("No Result!")
 
-except NoSuchElementException:
+except TimeoutException:
     print("Loading took too much time!")
