@@ -41,18 +41,30 @@ try:
         search.send_keys(email)
         submitButton()
 
-        try:
+        WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "View"))
+        )
+        res = driver.find_element_by_link_text("View")
+        if res:
+            res.click()
+        else:
             WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.LINK_TEXT, "View"))
+                EC.presence_of_element_located((By.CSS_SELECTOR, ".null-state"))
             )
-            driver.find_element_by_link_text("View").click()
-            driver.find_element_by_css_selector("input.ui-widget-content").send_keys(
-                "Closed", Keys.ENTER
-            )
-            driver.find_element_by_class_name("tagit-close").click()
-            submitButton()
-        except NoSuchElementException:
-            print("No Result!")
+            driver.find_element_by_css_selector(".null-state")
+            print("No result")
+        # try:
+        #     WebDriverWait(driver, 5).until(
+        #         EC.presence_of_element_located((By.LINK_TEXT, "View"))
+        #     )
+        #     driver.find_element_by_link_text("View").click()
+        #     driver.find_element_by_css_selector("input.ui-widget-content").send_keys(
+        #         "Closed", Keys.ENTER
+        #     )
+        #     driver.find_element_by_class_name("tagit-close").click()
+        #     submitButton()
+        # except NoSuchElementException:
+        #     print("No Result!")
 
 except TimeoutException:
     print("Loading took too much time!")
