@@ -12,9 +12,6 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get("https://application.textline.com/auth/sign_in?utm_cta=Sign%20In")
 
-email = config.username
-password = config.password
-
 # Functions and Givens
 emails = [
     "zcoburn1998@gmail.com",
@@ -28,8 +25,10 @@ def submitButton():
     return driver.find_element_by_class_name("button").click()
 
 
-input_email = driver.find_element_by_name("user[email]").send_keys(email)
-input_password = driver.find_element_by_name("user[password]").send_keys(password)
+input_email = driver.find_element_by_name("user[email]").send_keys(config.username)
+input_password = driver.find_element_by_name("user[password]").send_keys(
+    config.password
+)
 submitButton()
 
 try:
