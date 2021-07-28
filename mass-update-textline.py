@@ -14,16 +14,11 @@ driver.get("https://application.textline.com/auth/sign_in?utm_cta=Sign%20In")
 
 # Functions and Givens
 emails = [
-    "shastri_moesker@hotmail.com",
-    "ckrk1513@gmail.com",
-    "leidabugg@gmail.com",
-    "jvano2577@gmail.com",
-    "toddleight@gmail.com",
-    "jaredwagnersimmons@gmail.com",
-    "camsmith089@gmail.com",
-    "imanzioneaj@gmail.com",
-    "horton.john@gmail.com",
-    "jinnythoms@yahoo.com",
+    "info@socalhousebuyers.net",
+    "josecardona107@gmail.com",
+    "randy9324@gmail.com",
+    "liyaxsimone@gmail.com",
+    "rayeannamotley@gmail.com",
 ]
 
 
