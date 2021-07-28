@@ -52,5 +52,5 @@ try:
             driver.find_element_by_class_name("tagit-close").click()
             submitButton()
 
-except NoSuchElementException:
+except TimeoutException:
     print("Loading took too much time!")
